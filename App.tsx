@@ -1,4 +1,4 @@
-import BottomSheet from '@gorhom/bottom-sheet';
+import BottomSheet, {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {LegendList} from '@legendapp/list';
 import React from 'react';
 
@@ -17,6 +17,9 @@ function App(): React.JSX.Element {
         <LegendList
           style={{flex: 1}}
           data={data}
+          renderScrollComponent={({ref, ...props}) => (
+            <BottomSheetScrollView style={{flex: 1}} ref={ref} {...props} />
+          )}
           estimatedItemSize={60}
           renderItem={({item}) => (
             <View
